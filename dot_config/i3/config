@@ -51,7 +51,6 @@ bindsym $mod+0 exec "i3lock -e -f --color 000000"
 # shutdown menu
 bindsym $mod+Escape exec --no-startup-id ~/.config/i3blocks/shutdown_menu/shutdown_menu
 
-
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10% && pactl set-sink-volume 1 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10% && pactl set-sink-volume 1 -5% #decrease sound volume
@@ -60,9 +59,6 @@ bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle && pactl set-sink-volume
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
-
-# Touchpad controls
-#bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
@@ -75,12 +71,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec "rofi -show combi -combi-modes "window,run,ssh" -modes combi"
-
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-
+bindsym $mod+Tab exec --no-startup-id rofi -show combi -combi-modes 'window,run,ssh' -modes combi
 
 # change focus
 bindsym $mod+h focus left
@@ -134,9 +125,6 @@ new_window 1pixel
 
 # remove borders
 hide_edge_borders both
-
-# focus the child container
-#bindsym $mod+d focus child
 
 # switch to workspace
 bindsym $mod+1 workspace 1
