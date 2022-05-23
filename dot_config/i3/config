@@ -71,7 +71,8 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+Tab exec --no-startup-id rofi -show combi -combi-modes 'window,run,ssh' -modes combi
+bindsym $mod+Tab exec --no-startup-id $HOME/.config/rofi/launchers/text/launcher.sh
+bindsym $mod+BackSpace exec --no-startup-id $HOME/.config/rofi/powermenu/powermenu.sh
 
 # change focus
 bindsym $mod+h focus left
@@ -191,22 +192,3 @@ client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
 client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
 client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 client.background       #F8F8F2
-
-
-bar {
-        position bottom
-        status_command i3blocks
-        i3bar_command i3bar
-        font pango: JetBrains Mono NL 11
-        colors {
-                background #282A36
-                statusline #F8F8F2
-                separator  #44475A
-
-                focused_workspace  #44475A #44475A #F8F8F2
-                active_workspace   #282A36 #44475A #F8F8F2
-                inactive_workspace #282A36 #282A36 #BFBFBF
-                urgent_workspace   #FF5555 #FF5555 #F8F8F2
-                binding_mode       #FF5555 #FF5555 #F8F8F2
-    }
-}
