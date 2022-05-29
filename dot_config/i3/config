@@ -21,6 +21,9 @@ font pango:monospace 11
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
+# Wallpaper
+exec_always --no-startup-id $HOME/git/scripts/changewallpaper/changewallpaper.sh
+
 # copyQ clipboard
 exec --no-startup-id /usr/bin/copyq
 
