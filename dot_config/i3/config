@@ -25,7 +25,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id $HOME/git/scripts/changewallpaper/changewallpaper.sh
 
 # copyQ clipboard
-exec --no-startup-id /usr/bin/copyq
+exec --no-startup-id sleep 1 ; /usr/bin/copyq &
 
 # flameshot
 exec --no-startup-id /usr/bin/flameshot
