@@ -30,7 +30,9 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id $HOME/git/scripts/changewallpaper/changewallpaper.sh
 
 # copyQ clipboard
-exec --no-startup-id sleep 1 ; /usr/bin/copyq &
+# https://github.com/hluk/CopyQ/issues/1517#issuecomment-728865342
+exec --no-startup-id $HOME/git/scripts/copyqworkaround/copyqworkaround.sh
+#bindsym Control+] exec /usr/bin/copyq toggle
 
 # flameshot
 exec --no-startup-id /usr/bin/flameshot
