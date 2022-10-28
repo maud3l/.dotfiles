@@ -1,0 +1,94 @@
+# vim: ft=sh
+
+
+copy () {
+    if [[ "$OSTYPE" =~ "darwin"* ]]
+    then
+      pbcopy
+    else
+      xclip -selection clipboard
+    fi
+ }
+
+paste () {
+    if [[ "$OSTYPE" =~ "darwin"* ]]
+    then
+      pbpaste
+    else
+      xclip -selection clipboard -o
+    fi
+  }
+
+# # ex - archive extractor
+# usage: ex <file>
+ex ()
+{
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1     ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tar.xz)    tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+# make filename absolute
+abs() { realpath $1 }
+
+#Very often changing to a directory is followed by the ls command to list its contents. Therefore it is helpful to have a second function doing both at once. In this example we will name it cl (change list) and show an error message if the specified directory does not exist.
+
+cl() {
+	local dir="$1"
+	local dir="${dir:=$HOME}"
+	if [[ -d "$dir" ]]; then
+		cd "$dir" >/dev/null; ls
+	else
+		echo "bash: cl: $dir: Directory not found"
+	fi
+}
+
+# mkdir and cd into it
+
+mkcd() {
+    mkdir -p "$@" && cd "$@";
+}
+
+# cd to tmp dir
+cdtemp() {
+    DATE=$(date +%m-%d-%Y-%H:%M)
+    TMPDIR=$(mktemp --directory --suffix="-$DATE")
+    cd "$TMPDIR"
+}
+
+# cp to tmp dir
+cptemp() {
+    local file="$1"
+    DATE=$(date +%m-%d-%Y-%H:%M)
+    TMPDIR=$(mktemp --directory --suffix="-$DATE")
+    cp -r "$1" "$TMPDIR"
+    echo "File $1 was copied to $TMPDIR"
+}
+
+
+ec() {
+  local LAST_EXIT_CODE=$?
+  echo $LAST_EXIT_CODE
+}
+
+# tmux-send-command() {
+#   for pane in $(tmux list-panes -F '#P'); do
+#     tmux send-keys -t ${pane} "$@"
+#   done
+# }

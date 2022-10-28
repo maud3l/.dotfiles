@@ -1,26 +1,9 @@
---[[
-
-Neovim init file
-Version: 0.63.1 - 2022/07/05
-Maintainer: brainf+ck
-Website: https://github.com/brainfucksec/neovim-lua
-
---]]
-
-vim.opt.termguicolors = true
--- Import Lua modules
-require('packer_init')
-require('core/options')
-require('core/autocmds')
-require('core/keymaps')
-require('core/colors')
-require('core/statusline')
-require('plugins/nvim-tree')
-require('plugins/indent-blankline')
-require('plugins/nvim-cmp')
-require('plugins/nvim-lspconfig')
-require('plugins/nvim-treesitter')
-require('plugins/alpha-nvim')
-require('plugins/hop')
-require('plugins/autosave')
-require('plugins/bufferline')
+-- References to ./lua/
+-- Plugin management via Packer
+require("plugins")
+-- Vim mappings, see lua/config/which.lua for more mappings
+require("mappings")
+-- All non plugin related (vim) options
+require("options")
+-- Vim autocommands/autogroups
+require("autocmd")
