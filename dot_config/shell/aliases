@@ -1,0 +1,21 @@
+# vim: set ft=zsh:
+
+# Editor
+alias vim="nvim"
+
+# Git
+alias \
+  ga='git add .' \
+  gst='git status' \
+  gc='git commit' \
+  gp='git push' \
+  gll='git pull' \
+  gd='git diff' \
+  gchb='git checkout -b' \
+  gch='git checkout' \
+  gt='gitui'
+
+# Tmux
+alias \
+  tls='tmux ls'
+  tkill="for s in \$(tmux list-sessions | awk '{print \$1}' | rg ':' -r '' | fzf); do tmux kill-session -t \$s; done;"
