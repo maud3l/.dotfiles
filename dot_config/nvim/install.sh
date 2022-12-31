@@ -153,9 +153,7 @@ main () {
       git_clone_neovim_config
     elif [[ $LINUX_DISTRIBUTION == "arch" ]]; then
       echo running on arch based system
-      sudo pacman -Sy
       # shellcheck disable=SC2086
-      sudo pacman -S base-devel $common_packages
       install_brew
       install_neovim_dependencies
       install_neovim_head
