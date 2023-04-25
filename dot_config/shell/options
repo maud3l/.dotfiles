@@ -67,4 +67,3 @@ setopt complete_aliases                                         # autocompletion
 zstyle ':completion:*' list-colors ''                           # show colors on menu completion
 compinit -d
 colors
-

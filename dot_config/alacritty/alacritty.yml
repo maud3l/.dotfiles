@@ -86,15 +86,14 @@ mouse_bindings:
 key_bindings:
   - {key: V, mods: Alt, action: Paste}
   - {key: C, mods: Alt, action: Copy}
-  - {key: Key0, mods: Control, action: ResetFontSize}
-  - {key: Plus, mods: Control, action: IncreaseFontSize}
-  - {key: Minus, mods: Control, action: DecreaseFontSize}
+  - {key: Key0, mods: Shift, action: ResetFontSize}
+  - {key: Up, mods: Shift, action: IncreaseFontSize}
+  - {key: Down, mods: Shift, action: DecreaseFontSize}
+  - {key: Space, mods: Alt, chars: " "} # https://stackoverflow.com/questions/8694442/bash-piping-in-osx-prompts-command-not-found-sometimes -> send normal space
+  #- {key: Space, mods: Control, chars: "\0"} # for ctrl-space autosuggestion
   - {key: N, mods: Command, chars: "\en"} # to be able to switch tmux windows with alt-n
   - {key: P, mods: Command, chars: "\ep"} # to be able to switch tmux windows with alt-p
   - {key: Space, mods: Alt, chars: " "} # https://stackoverflow.com/questions/8694442/bash-piping-in-osx-prompts-command-not-found-sometimes -> send normal space
-  - {key: Space, mods: Control, chars: "\0"} # for ctrl-space autosuggestion
-  - {key: PageUp, mods: Shift, action: ScrollPageUp, mode: ~Alt}
-  - {key: PageDown, mods: Shift, action: ScrollPageDown, mode: ~Alt}
 schemes:
   material: &material
     primary:

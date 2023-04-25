@@ -110,6 +110,7 @@ wk.register({
     b = { "<cmd>Telescope file_browser grouped=true<cr>", "File browser" },
     f = { "<cmd>" .. require("functions").telescope_find_files() .. "<cr>", "Find File" },
     p = { "<cmd>Neotree reveal toggle<cr>", "Toggle Filetree" },
+    t = { "<cmd>UndotreeToggle<cr>", "Undo Tree Toggle" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
     s = { "<cmd>w<cr>", "Save Buffer" },
     z = { "<cmd>Telescope zoxide list<CR>", "Zoxide" },

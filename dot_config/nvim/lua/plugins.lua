@@ -341,6 +341,11 @@ packer.startup(function(use)
     end,
   })
 
+  use({
+    "mbbill/undotree",
+    cmd = { "UndotreeShow", "UndotreeToggle", "UndotreeHide", "UndotreeFocus" },
+  })
+
   -- DO NOT MOVE
 end)
 

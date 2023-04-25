@@ -1,5 +1,9 @@
 # vim: ft=sh
 
+# git commit
+gcm () {
+  git commit -m $1
+}
 
 copy () {
     if [[ "$OSTYPE" =~ "darwin"* ]]
