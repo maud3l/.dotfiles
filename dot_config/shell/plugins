@@ -1,8 +1,0 @@
-# vim: set ft=zsh:
-
-[ -d $HOME/.config/shell/fast-syntax-Highlighting ] && source $HOME/.config/shell/fast-syntax-Highlighting/fast-syntax-highlighting.plugin.zsh
-[ -f $HOME/.config/shell/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source $HOME/.config/shell/zsh-autosuggestions/zsh-autosuggestions.zsh
-[ -d $HOME/.config/shell/zsh-completions/ ] && fpath=($HOME/.config/shell/zsh-completions/src $fpath)
-
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-[ -f $HOME/.config/shell/powerlevel10k/powerlevel10k.zsh-theme ] && source $HOME/.config/shell/powerlevel10k/powerlevel10k.zsh-theme
