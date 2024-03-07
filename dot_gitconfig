@@ -1,0 +1,34 @@
+[user]
+	email = mauro.delillo #TODO: Fill with corporate email
+	name = Mauro De Lillo
+[init]
+	templatedir = ~/.git-templates
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    line-numbers = true
+    side-by-side = true
+
+[merge]
+	conflictStyle = zdiff3
+
+[diff]
+    colorMoved = default
+[pull]
+	rebase = true
+[rebase]
+	autoStash = true
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  fza = "!git ls-files -m -o --exclude-standard | fzf -m --print0 | xargs -0 git add"
+  gone = "!f() { git fetch --all --prune; git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D; }; f"
+  root = rev-parse --show-toplevel
+
+[branch]
+	sort = -committerdate
