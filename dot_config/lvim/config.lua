@@ -7,10 +7,10 @@ lvim.builtin.nvimtree.setup.actions.open_file.window_picker.chars = "ASDFGHJKL"
 -- Telescope config
 lvim.builtin.telescope.theme = "center"
 lvim.builtin.telescope.defaults.layout_strategy = "flex"
-lvim.builtin.telescope.on_config_done = function(telescope)
-  pcall(require("telescope").load_extension, "live_grep_args")
-end
-lvim.builtin.which_key.mappings.s.t = { require('telescope').extensions.live_grep_args.live_grep_args, "Live grep args", }
+--lvim.builtin.telescope.on_config_done = function(telescope)
+--  pcall(require("telescope").load_extension, "live_grep_args")
+--end
+--lvim.builtin.which_key.mappings.s.t = { require('telescope').extensions.live_grep_args.live_grep_args, "Live grep args", }
 
 
 -- Parsers
@@ -30,6 +30,10 @@ vim.opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpo
 vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 -- Plugins
 lvim.plugins = {
+  {
+    'nvim-telescope/telescope.nvim', version = '0.1.6',
+    dependencies = { {'nvim-lua/plenary.nvim'} }
+  },
   { "ray-x/go.nvim" },
   -- https://github.com/nvim-telescope/telescope-live-grep-args.nvim
   {
@@ -175,9 +179,9 @@ lvim.builtin.terminal.open_mapping = "<c-t>"
 
 -- Golang
 require('go').setup({
-  goimport = 'goimports', -- goimport command
+  goimports = 'goimports', -- goimport command
   gofmt = 'gofumpt',     --gofmt cmd,
-  max_line_len = 120,    -- max line length in goline format
+  --max_line_len = 120,    -- max line length in goline format
   tag_transform = false, -- tag_transfer  check gomodifytags for details
   verbose = true,        -- output loginf in messages
   log_path = vim.fn.expand("$HOME") .. "/.config/lvim/log.log",

@@ -4,14 +4,18 @@ if status is-interactive
   set -U fish_greeting
 	fish_vi_key_bindings
 	bind --mode insert --sets-mode default jj repaint
-
+  atuin init fish | source
+  eval "$(goenv init -)"
+  set -x EDITOR lvim
 end
-export $GOROOT/bin:$PATH
-export GOPATH=/Users/maurodelillo/go
 
-set -x EDITOR lvim
 
-set PATH $GOPATH/bin /opt/homebrew/sbin /opt/homebrew/bin ~/.local/bin /usr/local/opt/python/libexec/bin /usr/local/bin /usr/local/sbin $PATH
+pyenv init - | source
+
+set PATH /opt/homebrew/sbin /opt/homebrew/bin ~/.local/bin /usr/local/opt/python/libexec/bin /usr/local/bin /usr/local/sbin $PATH
+set PATH $GOROOT/bin $PATH
+set PATH $PATH $GOPATH/bin
+
 
 bind \ce edit_command_buffer
 bind --mode insert \ce edit_command_buffer

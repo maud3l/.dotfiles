@@ -1,6 +1,10 @@
 # General
 
-alias ls=exa
+alias ls=eza
+alias l0=layer0
+alias pubip="curl https://ipecho.net/plain ; echo"
+alias copy=pbcopy
+alias paste="pbpaste ; echo"
 
 # Editor
 alias vim=lvim
