@@ -1,7 +1,7 @@
 # General
 
 alias ls=eza
-alias l0=layer0
+alias c=chezmoi
 alias pubip="curl https://ipecho.net/plain ; echo"
 alias copy=pbcopy
 alias paste="pbpaste ; echo"
