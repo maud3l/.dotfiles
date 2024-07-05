@@ -6,7 +6,7 @@ if status is-interactive
 	bind --mode insert --sets-mode default jj repaint
   atuin init fish | source
   eval "$(goenv init -)"
-  set -x EDITOR lvim
+  set -x EDITOR nvim
 end
 
 

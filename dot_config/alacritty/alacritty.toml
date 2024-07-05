@@ -1,4 +1,5 @@
-import = ["/Users/maurodelillo/.config/alacritty/themes/one_dark.toml"]
+import = ["/Users/maurodelillo/.config/alacritty/themes/gruvbox_dark.toml"]
+live_config_reload = true
 
 [cursor]
 unfocused_hollow = true
@@ -11,15 +12,15 @@ TERM = "xterm-256color"
 size = 16
 
 [font.bold]
-family = "JetBrains Mono"
+family = "FiraCode Nerd Font Mono"
 style = "Bold"
 
 [font.italic]
-family = "JetBrains Mono"
+family = "FiraCode Nerd Font Mono"
 style = "Italic"
 
 [font.normal]
-family = "JetBrains Mono"
+family = "FiraCode Nerd Font Mono"
 style = "Regular"
 
 [font.offset]
@@ -89,6 +90,7 @@ program = "/opt/homebrew/bin/fish"
 [window]
 decorations = "buttonless"
 opacity = 1.0
+startup_mode = "Fullscreen"
 
 [window.padding]
 x = 0
