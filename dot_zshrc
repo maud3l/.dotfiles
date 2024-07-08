@@ -1,15 +1,1 @@
-# vim: set ft=zsh:
-
-source ~/.config/shell/p10k.zsh
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
-export ZSH="$HOME/.oh-my-zsh"
-source $ZSH/oh-my-zsh.sh
-
-source $HOME/.config/shell/options
-source $HOME/.config/shell/plugins
-source $HOME/.config/shell/tools
-source $HOME/.config/shell/aliases
-source $HOME/.config/shell/functions
-source $HOME/.config/shell/path
-source $HOME/.config/shell/fzf
+fish --init-command=clear

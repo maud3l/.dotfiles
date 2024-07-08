@@ -1,0 +1,97 @@
+import = ["/Users/maurodelillo/.config/alacritty/themes/gruvbox_dark.toml"]
+live_config_reload = true
+
+[cursor]
+unfocused_hollow = true
+
+[env]
+LANG = "en_US.UTF-8"
+TERM = "xterm-256color"
+
+[font]
+size = 16
+
+[font.bold]
+family = "FiraCode Nerd Font Mono"
+style = "Bold"
+
+[font.italic]
+family = "FiraCode Nerd Font Mono"
+style = "Italic"
+
+[font.normal]
+family = "FiraCode Nerd Font Mono"
+style = "Regular"
+
+[font.offset]
+x = 3
+y = 0
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Up"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Down"
+mods = "Shift"
+
+[[keyboard.bindings]]
+chars = " "
+key = "Space"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bn"
+key = "N"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001Bp"
+key = "P"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = " "
+key = "Space"
+mods = "Alt"
+
+[mouse]
+hide_when_typing = true
+
+[[mouse.bindings]]
+action = "Copy"
+mouse = "Left"
+
+[[mouse.bindings]]
+action = "PasteSelection"
+mouse = "Middle"
+
+[shell]
+args = ["--login", "-c", "tmux a -t base || tmux new -s base"]
+program = "/opt/homebrew/bin/fish"
+
+[window]
+decorations = "buttonless"
+opacity = 1.0
+startup_mode = "Fullscreen"
+
+[window.padding]
+x = 0
+y = 0
