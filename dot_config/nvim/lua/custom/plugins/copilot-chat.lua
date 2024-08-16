@@ -107,9 +107,9 @@ return {
 				chat.ask(args.args, {
 					selection = select.visual,
 					window = {
-						layout = "float",
+						layout = "vertical",
 						relative = "cursor",
-						width = 1,
+						width = 0.5,
 						height = 0.4,
 						row = 1,
 					},

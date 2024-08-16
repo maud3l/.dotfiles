@@ -15,7 +15,7 @@ pyenv init - | source
 set PATH /opt/homebrew/sbin /opt/homebrew/bin ~/.local/bin /usr/local/opt/python/libexec/bin /usr/local/bin /usr/local/sbin $PATH
 set PATH $GOROOT/bin $PATH
 set PATH $PATH $GOPATH/bin
-
+set GPG_TTY $(tty)
 
 bind \ce edit_command_buffer
 bind --mode insert \ce edit_command_buffer
