@@ -197,6 +197,8 @@ vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right win
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
+vim.g.python3_host_prog = "/opt/homebrew/bin/python3"
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -217,14 +219,6 @@ vim.keymap.set("t", "<leader>q", "<C-\\><C-n>:q<cr>")
 
 -- switch to normal mode with esc
 vim.keymap.set("t", "<ESC>", "<C-\\><C-n>")
-
--- Open terminal in vertical and horizontal split
-vim.keymap.set("n", "<leader>tv", "<cmd>vnew term://fish<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>ts", "<cmd>split term://fish<CR>", { noremap = true })
-
--- Open terminal in vertical and horizontal split, inside the terminal
-vim.keymap.set("t", "<leader>tv", "<c-w><cmd>vnew term://fish<CR>", { noremap = true })
-vim.keymap.set("t", "<leader>ts", "<c-w><cmd>split term://fish<CR>", { noremap = true })
 
 -- mappings to move out from terminal to other views
 vim.keymap.set("t", "<C-h>", "<C-\\><C-n><C-w>h")
@@ -355,6 +349,13 @@ require("lazy").setup({
 		branch = "0.1.x",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
+			"nvim-lua/popup.nvim",
+			{
+				"nvim-telescope/telescope-frecency.nvim",
+				config = function()
+					require("telescope").load_extension("frecency")
+				end,
+			},
 			"nvim-telescope/telescope-live-grep-args.nvim",
 			{ -- If encountering errors, see telescope-fzf-native README for installation instructions
 				"nvim-telescope/telescope-fzf-native.nvim",
@@ -405,7 +406,22 @@ require("lazy").setup({
 				--     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
 				--   },
 				-- },
-				-- pickers = {}
+				pickers = {
+					find_files = { theme = "ivy", layout_config = { height = 0.4 } },
+					git_files = { theme = "ivy", layout_config = { height = 0.4 } },
+					live_grep = { theme = "ivy", layout_config = { height = 0.4 } },
+					live_grep_args = { theme = "ivy", layout_config = { height = 0.4 } },
+					buffers = { theme = "ivy", layout_config = { height = 0.4 } },
+					keymaps = { theme = "ivy", layout_config = { height = 0.4 } },
+					file_browser = { theme = "ivy", layout_config = { height = 0.4 } },
+					treesitter = { theme = "ivy", layout_config = { height = 0.4 } },
+					help_tags = { theme = "ivy", layout_config = { height = 0.5 } },
+					man_pages = {
+						sections = { "1", "2", "3" },
+						theme = "ivy",
+						layout_config = { height = 0.4 },
+					},
+				},
 				vimgrep_arguments = {
 					"rg",
 					"--color=never",
@@ -427,6 +443,22 @@ require("lazy").setup({
 						override_file_sorter = true, -- override the file sorter
 						case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 					},
+					live_grep_args = {
+						auto_quoting = true, -- enable/disable auto-quoting
+						mappings = { -- extend mappings
+							i = {
+								["<C-k>"] = require("telescope-live-grep-args.actions").quote_prompt(), -- extracted as separate function,
+							},
+						},
+						theme = "ivy",
+						layout_config = { height = 0.4 },
+					},
+					frecency = {
+						auto_validate = false,
+						matcher = "fuzzy",
+						path_display = { "shorten" },
+						db_safe_mode = false,
+					},
 				},
 			})
 
@@ -442,6 +474,12 @@ require("lazy").setup({
 			vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
 			vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
 			vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
+			vim.keymap.set(
+				"n",
+				"<leader>ff",
+				":Telescope frecency workspace=CWD theme=ivy layout_config={height=0.4} path_display={'shorten'}<cr>",
+				{ silent = true }
+			)
 			vim.keymap.set(
 				"n",
 				"<leader>sg",
@@ -1036,6 +1074,10 @@ require("lazy").setup({
 				additional_vim_regex_highlighting = { "ruby" },
 			},
 			indent = { enable = true, disable = { "ruby" } },
+		},
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter-textobjects",
+			event = "InsertEnter",
 		},
 		config = function(_, opts)
 			-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
