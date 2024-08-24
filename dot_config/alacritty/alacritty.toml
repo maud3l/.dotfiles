@@ -1,4 +1,4 @@
-import = ["/Users/maurodelillo/.config/alacritty/themes/gruvbox_dark.toml"]
+import = ["/Users/maurodelillo/.config/alacritty/themes/alacritty_kanagawa.toml"]
 live_config_reload = true
 
 [cursor]
