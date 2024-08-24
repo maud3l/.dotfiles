@@ -14,6 +14,12 @@ return {
 	keys = {
 		{ "\\", ":Neotree reveal<CR>", { desc = "NeoTree reveal" } },
 	},
+	filesystem = {
+		follow_current_file = {
+			enabled = true, -- This will find and focus the file in the active buffer every time
+			-- the current file is changed while the tree is open.
+		},
+	},
 	event_handlers = {
 		event = "neo_tree_buffer_enter",
 		handler = function()
