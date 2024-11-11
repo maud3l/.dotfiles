@@ -95,6 +95,10 @@ vim.keymap.set("n", "<Leader>w", ":write!<CR>")
 vim.keymap.set("n", "<Leader>q", ":q!<CR>", { silent = true })
 vim.keymap.set("n", "<Leader>x", ":x!<CR>", { silent = true })
 
+--`vim.o.sessionoptions` should contain 'localoptions' to make sure
+-- filetype and highlighting work correctly after a session is restored.
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
@@ -321,7 +325,6 @@ require("lazy").setup({
 
       -- Document existing key chains
       require("which-key").register({
-        ["<leader>c"] = { name = "[C]ode", _ = "which_key_ignore" },
         ["<leader>d"] = { name = "[D]ebug", _ = "which_key_ignore" },
         ["<leader>r"] = { name = "[R]ename", _ = "which_key_ignore" },
         ["<leader>s"] = { name = "[S]earch", _ = "which_key_ignore" },

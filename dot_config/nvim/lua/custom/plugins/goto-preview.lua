@@ -1,9 +1,7 @@
 -- Previews
 return {
 	"rmagatti/goto-preview",
-	config = function()
-		require("goto-preview").setup({
-			default_mappings = true,
-		})
-	end,
+	event = "BufEnter",
+	config = true, -- necessary as per https://github.com/rmagatti/goto-preview/issues/88
+	default_mappings = true,
 }

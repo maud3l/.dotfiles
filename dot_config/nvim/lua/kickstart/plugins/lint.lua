@@ -6,7 +6,7 @@ return {
 		config = function()
 			local lint = require("lint")
 			lint.linters_by_ft = {
-				markdown = { "markdownlint" },
+				--markdown = { "markdownlint" },
 				dockerfile = { "hadolint" },
 				terraform = { "tflint" },
 			}
@@ -49,6 +49,11 @@ return {
 			vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
 				group = lint_augroup,
 				callback = function()
+					-- Skip linting for Copilot chat buffer
+					if vim.bo.filetype == "copilot-chat" then
+						return
+					end
+
 					require("lint").try_lint()
 				end,
 			})

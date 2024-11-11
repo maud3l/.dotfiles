@@ -1,3 +1,4 @@
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
   # Disable greeting globally
@@ -7,15 +8,21 @@ if status is-interactive
   atuin init fish | source
   eval "$(goenv init -)"
   set -x EDITOR nvim
+  set -x GPG_TTY $(tty)
+  set RIPGREP_CONFIG_PATH /Users/maurodelillo/.ripgreprc
+  set -U fish_user_paths $fish_function_path $fish_user_paths
 end
 
-
+source ~/.config/fish/functions/*.fish
+source ~/.config/fish/aliases.fish
+source ~/.config/fish/completions/*
 pyenv init - | source
 
 set PATH /opt/homebrew/sbin /opt/homebrew/bin ~/.local/bin /usr/local/opt/python/libexec/bin /usr/local/bin /usr/local/sbin $PATH
 set PATH $GOROOT/bin $PATH
 set PATH $PATH $GOPATH/bin
-set GPG_TTY $(tty)
+set -x GPG_TTY $(tty)
+set RIPGREP_CONFIG_PATH /Users/maurodelillo/.ripgreprc
 
 bind \ce edit_command_buffer
 bind --mode insert \ce edit_command_buffer
@@ -24,6 +31,4 @@ function __fish_set_oldpwd --on-variable dirprev
   set -g OLDPWD $dirprev[-1]
 end
 
-source ~/.config/fish/aliases.fish
-source ~/.config/fish/functions/*.fish
-source ~/.config/fish/completions/*
+set LAYER0_SPACE_SHELL_MAGIC true
