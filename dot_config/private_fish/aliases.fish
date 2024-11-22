@@ -46,8 +46,5 @@ alias gS="git stash"
 alias gsi="git diff --name-only | fzf -m | xargs -I {} git stash push -m 'Stashing {}' -- {}"
 
 #GitHub CLI
-alias gcs="gh copilot suggest"
-alias gce="gh copilot explain"
-
-#Do not commit
-alias l=layer0
+#alias gcs="gh copilot suggest"
+#alias gce="gh copilot explain"

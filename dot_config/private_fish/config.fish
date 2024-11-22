@@ -16,6 +16,7 @@ end
 source ~/.config/fish/functions/*.fish
 source ~/.config/fish/aliases.fish
 source ~/.config/fish/completions/*
+fzf --fish | source
 pyenv init - | source
 
 set PATH /opt/homebrew/sbin /opt/homebrew/bin ~/.local/bin /usr/local/opt/python/libexec/bin /usr/local/bin /usr/local/sbin $PATH
