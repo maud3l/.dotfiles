@@ -15,13 +15,13 @@ return {
 			"n",
 			"<space>tv",
 			":ToggleTerm size=100 direction=vertical<cr>",
-			{ desc = "Open [V]ertical Terminal" },
+			{ desc = "Open [V]ertical Terminal" }
 		),
 		-- Close terminal window, even if we are in insert mode
-		vim.keymap.set("t", "<leader>q", "<C-\\><C-n>:q<cr>"),
+		vim.keymap.set("t", "<leader>tq", "<C-\\><C-n>:q<cr>", { desc = "[Q]uit Terminal" }),
 
 		-- switch to normal mode with esc
-		vim.keymap.set("t", "<ESC>", "<C-\\><C-n>"),
+		vim.keymap.set("t", "<ESC>", "<C-\\><C-n>", { desc = "[ESC] Switch to normal mode" }),
 
 		-- mappings to move out from terminal to other views
 		vim.keymap.set("t", "<C-h>", "<C-\\><C-n><C-w>h"),

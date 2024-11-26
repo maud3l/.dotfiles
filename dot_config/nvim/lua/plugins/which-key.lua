@@ -30,7 +30,7 @@ return {
 			["<leader>s"] = { name = "[S]earch" },
 			["<leader>x"] = { name = "[D]iagnostics/Quickfix" },
 			["<leader>w"] = { name = "[W]indows" },
-			["<leader>z"] = { name = "[Q]uit" },
+			["<leader>q"] = { name = "[Q]uit" },
 		},
 	},
 	config = function(_, opts)
