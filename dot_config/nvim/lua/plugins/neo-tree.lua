@@ -31,8 +31,9 @@ return {
 					["PATH (CWD)"] = modify(filepath, ":."),
 					["PATH (HOME)"] = modify(filepath, ":~"),
 					["PATH"] = filepath,
-					--["GIT_LINK"] = vim.cmd("GitLink"),
-					--["GIT_LINK_DEFAULT"] = vim.cmd("GitLink default_branch"),
+					--TODO: Fix this. it should add to the prompt, not copy. `filename` doesnt include the path
+					--["GIT_LINK"] = vim.cmd("GitLink file=" .. filename),
+					--["GIT_LINK_DEFAULT"] = vim.cmd("GitLink default_branch file=" .. filename),
 				}
 
 				local options = vim.tbl_filter(function(val)

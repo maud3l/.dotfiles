@@ -17,25 +17,25 @@ return {
 		defaults = {
 			preset = "helix",
 			mode = { "n", "v" },
-			["g"] = { name = "+goto" },
-			["]"] = { name = "+next" },
-			["["] = { name = "+prev" },
-			["<leader>a"] = { name = "[A]I" },
-			["<leader>b"] = { name = "[B]uffers" },
-			["<leader>c"] = { name = "[C]ode" },
-			["<leader>d"] = { name = "[D]ebug" },
-			["<leader>f"] = { name = "[F]ile/find" },
-			["<leader>g"] = { name = "[G]it" },
-			["<leader>p"] = { name = "[P]ackages" },
-			["<leader>s"] = { name = "[S]earch" },
-			["<leader>x"] = { name = "[D]iagnostics/Quickfix" },
-			["<leader>w"] = { name = "[W]indows" },
-			["<leader>q"] = { name = "[Q]uit" },
+			{ "g",         group = "+goto" },
+			{ "]",         group = "+next" },
+			{ "[",         group = "+prev" },
+			{ "<leader>a", group = "[A]I" },
+			{ "<leader>b", group = "[B]uffers" },
+			{ "<leader>c", group = "[C]ode" },
+			{ "<leader>d", group = "[D]ebug" },
+			{ "<leader>f", group = "[F]ile/find" },
+			{ "<leader>g", group = "[G]it" },
+			{ "<leader>p", group = "[P]ackages" },
+			{ "<leader>s", group = "[S]earch" },
+			{ "<leader>x", group = "[D]iagnostics/Quickfix" },
+			{ "<leader>w", group = "[W]indows" },
+			{ "<leader>q", group = "[Q]uit" },
 		},
 	},
 	config = function(_, opts)
 		local wk = require("which-key")
 		wk.setup(opts)
-		wk.register(opts.defaults)
+		wk.add(opts.defaults)
 	end,
 }

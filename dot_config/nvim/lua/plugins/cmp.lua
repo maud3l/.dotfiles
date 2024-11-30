@@ -18,10 +18,15 @@ return {
 		"zbirenbaum/copilot-cmp",
 		"hrsh7th/cmp-cmdline",
 		"hrsh7th/cmp-path",
+		"hrsh7th/cmp-buffer",
 	},
 	config = function()
 		local luasnip = require("luasnip")
 		local types = require("luasnip.util.types")
+		local check_backspace = function()
+			local col = vim.fn.col(".") - 1
+			return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
+		end
 
 		-- Display virtual text to indicate snippet has more nodes
 		luasnip.config.setup({
@@ -39,6 +44,34 @@ return {
 		local lspkind = require("lspkind")
 
 		cmp.setup({
+			require("cmp").setup({
+				sources = {
+					{ name = "buffer" },
+				},
+			}),
+			-- `/` cmdline setup.
+			cmp.setup.cmdline("/", {
+				mapping = cmp.mapping.preset.cmdline(),
+				sources = {
+					{ name = "buffer" },
+				},
+			}),
+
+			-- `:` cmdline setup.
+			cmp.setup.cmdline(":", {
+				mapping = cmp.mapping.preset.cmdline(),
+				sources = cmp.config.sources({
+					{ name = "path" },
+				}, {
+					{
+						name = "cmdline",
+						option = {
+							ignore_cmds = { "Man", "!" },
+						},
+					},
+				}),
+			}),
+
 			snippet = {
 				expand = function(args)
 					luasnip.lsp_expand(args.body)

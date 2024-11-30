@@ -46,6 +46,9 @@ return { -- Fuzzy Finder (files, lsp, etc)
 				},
 			},
 			pickers = {
+				colorscheme = {
+					enable_preview = true,
+				},
 				find_files = {
 					theme = "ivy",
 					layout_config = { height = 0.4 },
@@ -73,6 +76,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 					layout_config = { height = 0.4 },
 				},
 				lsp_references = { theme = "ivy", layout_config = { height = 0.4 } },
+				smart_open = { theme = "ivy", layout_config = { height = 0.4 } },
 			},
 			vimgrep_arguments = {
 				"rg",
@@ -164,6 +168,8 @@ return { -- Fuzzy Finder (files, lsp, etc)
 			local ignores = require("telescope._extensions.smart_open.default_config").ignore_patterns
 
 			require("telescope").extensions.smart_open.smart_open({
+				theme = "ivy",
+				layout_config = { height = 0.4 },
 				cwd_only = true,
 				ignore_patterns = vim.list_extend(ignores, { "node_modules/*", "vendor/*" }),
 			})

@@ -3,7 +3,7 @@ return {
 	cmd = "GitLink",
 	opts = {},
 	keys = {
-		{ "<leader>glc", "<cmd>GitLink<cr>",  mode = { "n", "v" }, desc = "Copy [G]it [L]ink [C]urrent" },
+		{ "<leader>glc", "<cmd>GitLink<cr>", mode = { "n", "v" }, desc = "Copy [G]it [L]ink [C]urrent" },
 		{
 			"<leader>gld",
 			"<cmd>GitLink default_branch<cr>",

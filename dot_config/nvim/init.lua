@@ -1,7 +1,3 @@
---[[
- Comments
---]]
-
 -- Set <space> as the leader key
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = " "
@@ -14,7 +10,9 @@ vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
-vim.o.background = "dark"
+vim.g.personal = false
+
+vim.o.termguicolors = true
 
 -- [[ Setting options ]]
 
@@ -75,20 +73,7 @@ vim.keymap.set("n", "<leader>wh", "<C-w>s", { desc = "Split [W]indow [H]orizonta
 vim.keymap.set("n", "<leader>we", "<C-w>=", { desc = "Make Splits [E]qual [S]ize" })
 vim.keymap.set("n", "<leader>wq", "<cmd>close<CR>", { desc = "[Q]uit [C]urrent [S]plit" })
 
-vim.keymap.set("v", "<A-k>", "<Up>")
-vim.keymap.set("n", "<A-k>", "V<Up>")
-vim.keymap.set("v", "<A-j", "<Down>")
-vim.keymap.set("v", "<A-h>", "<Left>")
-vim.keymap.set("n", "<A-j>", "V<Down>")
-vim.keymap.set("n", "<A-h>", "v<Left>")
-vim.keymap.set("n", "<C-A-h>", "<Esc>v")
-vim.keymap.set("v", "<A-l>", "<Right>")
-vim.keymap.set("n", "<C-A-l>", "<Esc>v")
-vim.keymap.set("n", "<A-l>", "v<Right>")
-vim.keymap.set("i", "<A-j>", "<Esc>V<Down>")
-vim.keymap.set("i", "<A-h>", "<Esc>V<Left>")
-vim.keymap.set("i", "<A-l>", "<Esc>V<Right>")
-
+-- exiting
 vim.keymap.set("n", "<leader>qq", "<cmd>qa!<cr>", { desc = "Quit All" })
 vim.keymap.set("n", "<Leader>qw", ":w<CR>", { desc = "[Write]" })
 vim.keymap.set("n", "<Leader>qx", ":x!<CR>", { desc = "[W]rite and Quit" })
@@ -133,10 +118,19 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-end ---@diagnostic disable-next-line: undefined-field
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out,                            "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
+end
 vim.opt.rtp:prepend(lazypath)
 
 -- https://github.com/zbirenbaum/copilot-cmp?tab=readme-ov-file#highlighting--icon
@@ -151,18 +145,12 @@ vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 --  To update plugins you can run
 --    :Lazy update
 --
--- NOTE: Here is where you install your plugins.
 require("lazy").setup({
-  -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
-  --    This is the easiest way to modularize your config.
   --
-  --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
   { import = "plugins" },
+  { import = "plugins.themes" },
 }, {
   ui = {
-    -- If you are using a Nerd Font: set icons to an empty table which will use the
-    -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
     icons = vim.g.have_nerd_font and {} or {
       cmd = "⌘",
       config = "🛠",

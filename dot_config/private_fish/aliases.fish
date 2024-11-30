@@ -1,4 +1,3 @@
-
 # General
 
 alias ls=eza
@@ -17,6 +16,7 @@ alias cdr="cd (git rev-parse --show-toplevel)"
 # Editor
 alias v=nvim
 alias vim=nvim
+alias lazyupdate='nvim --headless "+Lazy! sync" +qa && nvim --headless "+Lazy! instal:l" +qa'
 
 # Kubernetes
 alias k=kubectl
@@ -45,6 +45,8 @@ alias gt="gitui"
 alias gS="git stash"
 alias gsi="git diff --name-only | fzf -m | xargs -I {} git stash push -m 'Stashing {}' -- {}"
 
+alias ungron="gron --ungron"
+
 #GitHub CLI
-#alias gcs="gh copilot suggest"
-#alias gce="gh copilot explain"
+alias gcs="gh copilot suggest"
+alias gce="gh copilot explain"

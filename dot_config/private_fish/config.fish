@@ -1,7 +1,7 @@
-
 if status is-interactive
     # Commands to run in interactive sessions can go here
   # Disable greeting globally
+  starship init fish | source
   set -U fish_greeting
 	fish_vi_key_bindings
 	bind --mode insert --sets-mode default jj repaint
@@ -13,9 +13,11 @@ if status is-interactive
   set -U fish_user_paths $fish_function_path $fish_user_paths
 end
 
+source ~/.config/fish/themes/github_light.fish
 source ~/.config/fish/functions/*.fish
 source ~/.config/fish/aliases.fish
 source ~/.config/fish/completions/*
+source ~/.config/fish/opts/*
 fzf --fish | source
 pyenv init - | source
 
