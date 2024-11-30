@@ -16,7 +16,7 @@ alias cdr="cd (git rev-parse --show-toplevel)"
 # Editor
 alias v=nvim
 alias vim=nvim
-alias lazyupdate='nvim --headless "+Lazy! sync" +qa && nvim --headless "+Lazy! instal:l" +qa'
+alias lazyupdate='nvim --headless "+Lazy! sync" +qa && nvim --headless "+Lazy! install" +qa'
 
 # Kubernetes
 alias k=kubectl
