@@ -18,7 +18,7 @@ vim.o.termguicolors = true
 
 -- Make line numbers default
 vim.opt.number = true
--- vim.opt.relativenumber = true
+vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = "a"
@@ -40,7 +40,8 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 -- Keep signcolumn on by default
-vim.opt.signcolumn = "yes"
+--vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "number"
 
 -- Decrease update time
 vim.opt.updatetime = 250
@@ -87,6 +88,13 @@ vim.keymap.set("n", "xp", vim.diagnostic.goto_prev, { desc = "Go to [p]revious D
 vim.keymap.set("n", "xn", vim.diagnostic.goto_next, { desc = "Go to [n]ext Diagnostic message" })
 vim.keymap.set("n", "<leader>xe", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
 vim.keymap.set("n", "<leader>xq", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+
+-- Duplicate a line and comment out the first line
+vim.keymap.set("n", "yc", "yygccp", { remap = true, desc = "[C]opy to a comment above" })
+vim.keymap.set("v", "yc", "ygvgc`>p", { remap = true, desc = "[C]opy to a comment above" })
+
+-- Delete content of current file/buffer
+vim.keymap.set("n", "<leader>fd", ":%d<CR>", { remap = true, desc = "[D]elete all buffer content" })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which

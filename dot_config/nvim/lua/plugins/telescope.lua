@@ -164,7 +164,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 		end, { desc = "[S]earch [N]eovim files" })
 
 		-- Smart files
-		vim.keymap.set("n", "<leader>ss", function()
+		vim.keymap.set("n", "<leader>sm", function()
 			local ignores = require("telescope._extensions.smart_open.default_config").ignore_patterns
 
 			require("telescope").extensions.smart_open.smart_open({
@@ -173,6 +173,6 @@ return { -- Fuzzy Finder (files, lsp, etc)
 				cwd_only = true,
 				ignore_patterns = vim.list_extend(ignores, { "node_modules/*", "vendor/*" }),
 			})
-		end, { desc = "[S]earch [S]mart files" })
+		end, { desc = "[S]earch S[M]art files" })
 	end,
 }

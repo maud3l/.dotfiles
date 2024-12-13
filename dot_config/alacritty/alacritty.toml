@@ -28,16 +28,6 @@ x = 3
 y = 0
 
 [[keyboard.bindings]]
-action = "Paste"
-key = "V"
-mods = "Alt"
-
-[[keyboard.bindings]]
-action = "Copy"
-key = "C"
-mods = "Alt"
-
-[[keyboard.bindings]]
 action = "ResetFontSize"
 key = "Key0"
 mods = "Shift"
@@ -53,11 +43,6 @@ key = "Down"
 mods = "Shift"
 
 [[keyboard.bindings]]
-chars = " "
-key = "Space"
-mods = "Alt"
-
-[[keyboard.bindings]]
 chars = "\u001Bn"
 key = "N"
 mods = "Command"
@@ -66,11 +51,6 @@ mods = "Command"
 chars = "\u001Bp"
 key = "P"
 mods = "Command"
-
-[[keyboard.bindings]]
-chars = " "
-key = "Space"
-mods = "Alt"
 
 [mouse]
 hide_when_typing = true

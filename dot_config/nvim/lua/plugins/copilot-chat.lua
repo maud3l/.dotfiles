@@ -214,15 +214,15 @@ return {
 				desc = "[A]I - [Q]uick chat",
 			},
 			-- Debug
-			{ "<leader>ad", "<cmd>CopilotChatDebugInfo<cr>",     desc = "[A]I - Debug Info" },
+			{ "<leader>ad", "<cmd>CopilotChatDebugInfo<cr>", desc = "[A]I - Debug Info" },
 			-- Fix the issue with diagnostic
-			{ "<leader>af", "<cmd>CopilotChatFixDiagnostic<cr>", desc = "[A]I - Fix Diagnostic" },
+			{ "<leader>af", "<cmd>CopilotChatFix<cr>",       desc = "[A]I - Fix Diagnostic" },
 			-- Clear buffer and chat history
-			{ "<leader>al", "<cmd>CopilotChatReset<cr>",         desc = "[A]I - Clear buffer and chat history" },
+			{ "<leader>al", "<cmd>CopilotChatReset<cr>",     desc = "[A]I - Clear buffer and chat history" },
 			-- Toggle Copilot Chat Vsplit
-			{ "<leader>av", "<cmd>CopilotChatToggle<cr>",        desc = "[A]I - Toggle" },
+			{ "<leader>av", "<cmd>CopilotChatToggle<cr>",    desc = "[A]I - Toggle" },
 			-- Stop Copilot Chat output
-			{ "<leader>as", "<cmd>CopilotChatStop<cr>",          desc = "[A]I - [S]top Output" },
+			{ "<leader>as", "<cmd>CopilotChatStop<cr>",      desc = "[A]I - [S]top Output" },
 		},
 	},
 }

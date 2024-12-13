@@ -35,6 +35,29 @@ return { -- Collection of various small independent plugins/modules
 
 		require("mini.pairs").setup()
 
-		require("mini.move").setup()
+		require("mini.move").setup({
+			-- Module mappings. Use `''` (empty string) to disable one.
+			mappings = {
+				-- Move visual selection in Visual mode. Defaults are Alt (Meta) + hjkl.
+				left = "<S-h>",
+				right = "<S-l>",
+				up = "<S-k>",
+				down = "<S-j>",
+
+				-- Move current line in Normal mode
+				line_left = "<S-h>",
+				line_right = "<S-l>",
+				line_down = "<S-j>",
+				line_up = "<S-k>",
+			},
+
+			-- Options which control moving behavior
+			options = {
+				-- Automatically reindent selection during linewise vertical move
+				reindent_linewise = true,
+			},
+		})
+
+		require("mini.trailspace").setup()
 	end,
 }
