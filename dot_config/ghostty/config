@@ -1,0 +1,40 @@
+theme = light:Github, dark:GitHub Dark
+font-family = "JetBrainsMono Nerd Font"
+font-size = 22
+
+mouse-hide-while-typing = true
+cursor-style-blink = false
+cursor-style = block
+confirm-close-surface = false
+
+shell-integration = fish
+
+window-save-state = always
+
+# keybindings
+keybind = super+h=goto_split:left
+keybind = super+j=goto_split:bottom
+keybind = super+k=goto_split:top
+keybind = super+l=goto_split:right
+
+keybind = super+shift+t=new_tab
+keybind = super+n=next_tab
+keybind = super+shift+h=previous_tab
+keybind = super+shift+down=previous_tab
+keybind = super+shift+l=next_tab
+keybind = super+shift+up=next_tab
+keybind = super+shift+comma=move_tab:-1
+keybind = super+shift+period=move_tab:1
+
+keybind = super+c=copy_to_clipboard
+keybind = super+v=paste_from_clipboard
+keybind = super+shift+x=close_surface
+keybind = global:ctrl+escape=toggle_quick_terminal
+quick-terminal-position = center
+
+keybind = shift+0=increase_font_size:2
+keybind = shift+9=decrease_font_size:2
+
+keybind = super+shift+enter=new_split:auto
+keybind = super+shift+m=toggle_split_zoom
+keybind = super+shift+r=reload_config

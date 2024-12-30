@@ -1,170 +1,74 @@
-[aws]
-symbol = "  "
+format = '''
+ $username$directory$git_branch$git_status[](fg:bright-black)
+  [󱞩 ](bold)
+'''
 
-[buf]
-symbol = " "
+right_format = """
+$nodejs\
+$php\
+$python
+"""
 
-[c]
-symbol = " "
+# Disable the blank line at the start of the prompt
+add_newline = true
 
-[conda]
-symbol = " "
+[username]
+show_always = true
+style_user = "white"
+style_root = "red"
+format = '[]($style)[$user](bold bg:$style fg:black)[](bg:bright-black fg:$style)'
+disabled = false
 
-[crystal]
-symbol = " "
+[os]
+style = "yellow"
+format = '[$symbol]($style)'
+disabled = false # Disabled by default
 
-[dart]
-symbol = " "
+# This is the default symbols table.
+[os.symbols]
+Arch = " "
+Debian = " "
+EndeavourOS = " "
+Linux = " "
+Macos = " "
+NixOS = "󱄅 "
+openSUSE = " "
+Pop = " "
+SUSE = " "
+Ubuntu = "󰕈 "
+Unknown = ""
+Windows = " "
 
 [directory]
-read_only = " 󰌾"
+style = "bg:bright-black fg:black"
+format = "[ $path]($style)"
+repo_root_style = "bold bg:bright-black fg:black"
+repo_root_format = "[ $before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)"
+truncation_length = 3
+truncate_to_repo = true
+# home_symbol = " "
+# truncation_symbol = "…/"
 
-[docker_context]
-symbol = " "
+# Here is how you can shorten some long paths by text replacement
+# similar to mapped_locations in Oh My Posh:
+[directory.substitutions]
+# "Documents" = "󰈙 "
+# "Downloads" = " "
+# "Music" = " "
+# "Pictures" = " "
+# "Projects" = "󰵮 "
 
-[elixir]
-symbol = " "
-
-[elm]
-symbol = " "
-
-[fennel]
-symbol = " "
-
-[fossil_branch]
-symbol = " "
+# Keep in mind that the order matters. For example:
+# "Important Documents" = " 󰈙 "
+# will not be replaced, because "Documents" was already substituted before.
+# So either put "Important Documents" before "Documents" or use the substituted version:
+# "Important 󰈙 " = " 󰈙 "
 
 [git_branch]
-symbol = " "
+symbol = ""
+style = "bg:bright-black fg:black"
+format = '[  $symbol $branch]($style)'
 
-[git_commit]
-tag_symbol = '  '
-
-[golang]
-symbol = " "
-
-[guix_shell]
-symbol = " "
-
-[haskell]
-symbol = " "
-
-[haxe]
-symbol = " "
-
-[hg_branch]
-symbol = " "
-
-[hostname]
-ssh_symbol = " "
-
-[java]
-symbol = " "
-
-[julia]
-symbol = " "
-
-[kotlin]
-symbol = " "
-
-[lua]
-symbol = " "
-
-[memory_usage]
-symbol = "󰍛 "
-
-[meson]
-symbol = "󰔷 "
-
-[nim]
-symbol = "󰆥 "
-
-[nix_shell]
-symbol = " "
-
-[nodejs]
-symbol = " "
-
-[ocaml]
-symbol = " "
-
-[os.symbols]
-Alpaquita = " "
-Alpine = " "
-AlmaLinux = " "
-Amazon = " "
-Android = " "
-Arch = " "
-Artix = " "
-CentOS = " "
-Debian = " "
-DragonFly = " "
-Emscripten = " "
-EndeavourOS = " "
-Fedora = " "
-FreeBSD = " "
-Garuda = "󰛓 "
-Gentoo = " "
-HardenedBSD = "󰞌 "
-Illumos = "󰈸 "
-Kali = " "
-Linux = " "
-Mabox = " "
-Macos = " "
-Manjaro = " "
-Mariner = " "
-MidnightBSD = " "
-Mint = " "
-NetBSD = " "
-NixOS = " "
-OpenBSD = "󰈺 "
-openSUSE = " "
-OracleLinux = "󰌷 "
-Pop = " "
-Raspbian = " "
-Redhat = " "
-RedHatEnterprise = " "
-RockyLinux = " "
-Redox = "󰀘 "
-Solus = "󰠳 "
-SUSE = " "
-Ubuntu = " "
-Unknown = " "
-Void = " "
-Windows = "󰍲 "
-
-[package]
-symbol = "󰏗 "
-
-[perl]
-symbol = " "
-
-[php]
-symbol = " "
-
-[pijul_channel]
-symbol = " "
-
-[python]
-symbol = " "
-
-[rlang]
-symbol = "󰟔 "
-
-[ruby]
-symbol = " "
-
-[rust]
-symbol = "󱘗 "
-
-[scala]
-symbol = " "
-
-[swift]
-symbol = " "
-
-[zig]
-symbol = " "
-
-[gradle]
-symbol = " "
+[git_status]
+style = "bg:bright-black fg:black"
+format = '[ $all_status$ahead_behind]($style)'

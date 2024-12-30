@@ -93,6 +93,8 @@ vim.keymap.set("n", "<leader>xq", vim.diagnostic.setloclist, { desc = "Open diag
 vim.keymap.set("n", "yc", "yygccp", { remap = true, desc = "[C]opy to a comment above" })
 vim.keymap.set("v", "yc", "ygvgc`>p", { remap = true, desc = "[C]opy to a comment above" })
 
+vim.keymap.set("n", "Y", "y$", { remap = true, desc = "[Y]ank to EOL" }) -- What should have been `Y`
+
 -- Delete content of current file/buffer
 vim.keymap.set("n", "<leader>fd", ":%d<CR>", { remap = true, desc = "[D]elete all buffer content" })
 
